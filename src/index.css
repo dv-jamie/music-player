@@ -1,0 +1,45 @@
+@import "reset.css";
+
+:root {
+  --main-purple: #6A49F6;
+  --purple200: #F9F5FF;
+  --purple400: #BEB0FB;
+  --purple600p: #7C6698;
+  --blue: #3E72FF;
+  --red: #EF315D;
+  --gray100: #F8F8F8;
+  --gray200: #EFEFEF;
+  --gray300: #EAE7E7;
+  --gray400: #DEDEDE;
+  --gray500: #D5D3D3;
+  --gray600: #BBBBBB;
+  --gray700: #ABABAB;
+  --gray750: #A0A2Ad;
+  --gray800: #929292;
+  --gray900: #76767B;
+  --dark-gray450: #4D4D4D;
+  --dark-gray700: #393939;
+  --black: #191919;
+  --yellow200: #F3EA73;
+  --yellow400: #FFD900;
+  --yellow600: #F7B550;
+  --yellow900: #B2894E;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--black);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.hide {
+  display: none;
+}
