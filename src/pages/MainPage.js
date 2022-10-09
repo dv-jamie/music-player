@@ -4,11 +4,13 @@ import "./MainPage.css"
 
 function MainPage() {
     return (
-        <div className="main-container">
-            <h1 className="header-title">Today's Music</h1>
-            <MusicList />
+        <>
+            <div className="main-container">
+                <h1 className="header-title">Today's Music</h1>
+                <MusicList />
+            </div>
             <PlayArea />
-        </div>
+        </>
     )
 }
 

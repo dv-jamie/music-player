@@ -1,16 +1,17 @@
 .music-list-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    width: 830px;
+    width: 60vw;
+    height: 100%;
     margin: 0 30px;
     word-break: break-all;
 }
 
 .music-list {
-    width: 400px;
+    width: 45%;
+    min-width: 200px;
     height: 80px;
-    margin-bottom: 30px;
+    margin: 0 3% 3% 0;
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
