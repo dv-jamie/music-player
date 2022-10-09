@@ -7,7 +7,7 @@ function MusicList() {
             {musicList.map(music => {
                 return (
                     <li className="music-list">
-                        <div className="album-cover-wrap">
+                        <div className="thumb-wrap">
                             <img src={music.image} />
                         </div>
                         <div className="music-info">
