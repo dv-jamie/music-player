@@ -1,29 +1,11 @@
 @import "reset.css";
 
 :root {
-  --main-purple: #6A49F6;
-  --purple200: #F9F5FF;
-  --purple400: #BEB0FB;
-  --purple600p: #7C6698;
-  --blue: #3E72FF;
-  --red: #EF315D;
-  --gray100: #F8F8F8;
-  --gray200: #EFEFEF;
-  --gray300: #EAE7E7;
-  --gray400: #DEDEDE;
-  --gray500: #D5D3D3;
-  --gray600: #BBBBBB;
-  --gray700: #ABABAB;
-  --gray750: #A0A2Ad;
-  --gray800: #929292;
-  --gray900: #76767B;
-  --dark-gray450: #4D4D4D;
-  --dark-gray700: #393939;
-  --black: #191919;
-  --yellow200: #F3EA73;
-  --yellow400: #FFD900;
-  --yellow600: #F7B550;
-  --yellow900: #B2894E;
+  --charcoal: #232023;
+  --iron: #322D31;
+  --smoke: #59515E;
+  --coin: #9897A9;
+  --cloud: #C5C6D0;
 }
 
 body {
@@ -32,7 +14,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--black);
+  padding: 20px;
+  background-color: var(--charcoal);
+  color: #FFF;
 }
 
 code {
