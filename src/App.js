@@ -1,6 +1,10 @@
+import MainPage from "./pages/MainPage";
+
 function App() {
   return (
-    <>123</>
+    <>
+      <MainPage />
+    </>
   );
 }
 
