@@ -2,13 +2,12 @@
     display: flex;
     flex-wrap: wrap;
     width: 60vw;
-    height: 100%;
-    margin: 0 30px;
-    word-break: break-all;
+    margin-left: 30px;
 }
 
 .music-list {
     width: 45%;
+    max-width: 500px;
     min-width: 200px;
     height: 80px;
     margin: 0 3% 3% 0;
