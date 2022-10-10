@@ -24,3 +24,5 @@ const playList = [
         "lyrics": "가사.."
     },
 ]
+
+export default playList
