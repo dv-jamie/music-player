@@ -6,7 +6,7 @@ function MusicList() {
         <ul className="music-list-container">
             {musicList.map(music => {
                 return (
-                    <li className="music-list">
+                    <li key={music.id} className="music-list">
                         <div className="thumb-wrap">
                             <img src={music.image} />
                         </div>
