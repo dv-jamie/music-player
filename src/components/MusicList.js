@@ -14,9 +14,9 @@ function MusicList() {
                             <p className="info-title">{music.title}</p>
                             <p className="info-artist">{music.artist}</p>
                         </div>
-                        <span className="add-icon material-symbols-outlined">
+                        <i className="add-icon material-symbols-outlined">
                             playlist_add
-                        </span>
+                        </i>
                     </li> 
                 )
             })}
