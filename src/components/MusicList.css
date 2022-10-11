@@ -42,3 +42,6 @@
     float: right;
     cursor: pointer;
 }
+.add-icon:hover {
+    color: var(--red);
+}

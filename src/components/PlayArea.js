@@ -1,4 +1,3 @@
-import { useState } from "react"
 import "./PlayArea.css"
 
 const tabType = {
@@ -6,9 +5,7 @@ const tabType = {
     LIST: "LIST"
 }
 
-function PlayArea({ playList, setPlayList }) {
-    const [clickedTab, setClickedTab] = useState(tabType.PLAY)
-
+function PlayArea({ playList, setPlayList, clickedTab, setClickedTab }) {
     const onRemoveButtonClick = (musicIndex) => {
         setPlayList(playList.filter(music => music.index !== musicIndex))
     }
