@@ -1,5 +1,4 @@
 import { useState } from "react"
-import playList from "../databases/playList"
 import "./PlayArea.css"
 
 const tabType = {
@@ -7,8 +6,12 @@ const tabType = {
     LIST: "LIST"
 }
 
-function PlayArea() {
+function PlayArea({ playList, setPlayList }) {
     const [clickedTab, setClickedTab] = useState(tabType.PLAY)
+
+    const onRemoveButtonClick = (musicIndex) => {
+        setPlayList(playList.filter(music => music.index !== musicIndex))
+    }
 
     return (
         <div className="play-area-container">
@@ -31,19 +34,7 @@ function PlayArea() {
                         <p className="title">제목</p>
                         <p className="artist">가수</p>
                     </div>
-                    <div className="lyrics">
-                        가사..<br />
-                        가사..<br />
-                        가사..<br />
-                        가사..<br />
-                        가사..<br />
-                        가사..<br />
-                        가사..<br />
-                        가사..<br />
-                        가사..<br />
-                        가사..<br />
-                        가사..<br />
-                    </div>
+                    <div className="lyrics">{}</div>
                 </>
                 : <ul className="play-list-wrap">
                     <li className="play-list">
@@ -52,10 +43,13 @@ function PlayArea() {
                     </li>
                     {playList.map(music => {
                         return(
-                            <li key={music.id} className="play-list">
+                            <li key={music.index} className="play-list">
                                 <span className="title">{music.title}</span>
                                 <span className="artist">{music.artist}</span>
-                                <i className="material-symbols-outlined">
+                                <i
+                                    className="material-symbols-outlined"
+                                    onClick={() => onRemoveButtonClick(music.index)}
+                                >
                                     remove
                                 </i>
                             </li> 
@@ -63,6 +57,11 @@ function PlayArea() {
                     })}
                 </ul>
             }
+            <div className="audio-player-container">
+                <button className="play-button">
+                    <i className="play-button material-symbols-outlined">play_arrow</i>
+                </button>
+            </div>
         </div>
     )
 }
