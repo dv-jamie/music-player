@@ -16,11 +16,11 @@ function PlayArea({ playList, setPlayList, clickedTab, setClickedTab }) {
                 <li
                     className={clickedTab === tabType.PLAY ? "clicked-tab" : ""}
                     onClick={() => setClickedTab(tabType.PLAY)}
-                    >재생 화면</li>
+                >재생 화면</li>
                 <li
                     className={clickedTab === tabType.LIST ? "clicked-tab" : ""}
-                    onClick={() => setClickedTab(tabType.LIST)
-                }>재생 목록</li>
+                    onClick={() => setClickedTab(tabType.LIST)}
+                >재생 목록</li>
             </ul>
             {clickedTab === tabType.PLAY
                 ? <>

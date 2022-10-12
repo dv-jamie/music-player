@@ -95,6 +95,10 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     font-weight: bold;
 }
+.play-list:not(:first-of-type):hover {
+    color: var(--red);
+    cursor: pointer;
+}
 .play-list > span {
     display: inline-block;
     height: 100%;
