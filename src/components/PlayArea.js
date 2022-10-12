@@ -1,11 +1,19 @@
 import "./PlayArea.css"
+import no_image from "../images/no_image.jpg"
 
 const tabType = {
     PLAY: "PLAY",
     LIST: "LIST"
 }
 
-function PlayArea({ playList, setPlayList, clickedTab, setClickedTab }) {
+function PlayArea({
+    clickedTab,
+    setClickedTab,
+    playList,
+    setPlayList,
+    playingMusic,
+    setPlayingMusic
+}) {
     const onRemoveButtonClick = (musicIndex) => {
         setPlayList(playList.filter(music => music.index !== musicIndex))
     }
@@ -25,33 +33,53 @@ function PlayArea({ playList, setPlayList, clickedTab, setClickedTab }) {
             {clickedTab === tabType.PLAY
                 ? <>
                     <div className="album-cover-wrap">
-                        <img src="https://image.bugsm.co.kr/album/images/500/40737/4073710.jpg" />
+                        <img src={playingMusic
+                            ? `${playingMusic.image}`
+                            : `${no_image}`
+                        } />
                     </div>
                     <div className="played-music-info">
-                        <p className="title">제목</p>
-                        <p className="artist">가수</p>
+                        {playingMusic
+                            ? <>
+                                <p className="title">{playingMusic.title}</p>
+                                <p className="artist">{playingMusic.artist}</p>
+                            </>
+                            : <p className="artist">재생 중인 음악이 없습니다.</p>
+                        }
                     </div>
-                    <div className="lyrics">{}</div>
+                    <div className="lyrics">
+                        {playingMusic
+                            ? `${playingMusic.lyrics}`
+                            : ""
+                        }
+                    </div>
                 </>
                 : <ul className="play-list-wrap">
                     <li className="play-list">
                         <span className="title">제목</span>
                         <span className="artist">아티스트</span>
                     </li>
-                    {playList.map(music => {
-                        return(
-                            <li key={music.index} className="play-list">
-                                <span className="title">{music.title}</span>
-                                <span className="artist">{music.artist}</span>
-                                <i
-                                    className="material-symbols-outlined"
-                                    onClick={() => onRemoveButtonClick(music.index)}
-                                >
-                                    remove
-                                </i>
-                            </li> 
-                        )
-                    })}
+                    {playList.length > 0
+                        ? <>
+                            {playList.map(music => {
+                                return(
+                                    <li key={music.index} className="play-list">
+                                        <span className="title">{music.title}</span>
+                                        <span className="artist">{music.artist}</span>
+                                        <i
+                                            className="material-symbols-outlined"
+                                            onClick={() => onRemoveButtonClick(music.index)}
+                                        >
+                                            remove
+                                        </i>
+                                    </li> 
+                                )
+                            })}
+                        </>
+                        : <li className="empty-play-list">
+                            재생 목록을 추가해 주세요.
+                        </li> 
+                    }
                 </ul>
             }
             <div className="audio-player-container">

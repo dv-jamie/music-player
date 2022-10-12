@@ -1,7 +1,12 @@
 import MUSIC_LIST from "../databases/musicList"
 import "./MusicList.css"
 
-function MusicList({ playList, setPlayList, setClickedTab }) {
+function MusicList({
+    setClickedTab,
+    playList,
+    setPlayList,
+    playingMusic
+}) {
     const onAddIconClick = (musicId) => {
         MUSIC_LIST.map(music => {
             if(music.id === musicId) {

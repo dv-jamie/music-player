@@ -85,10 +85,14 @@
     margin: 0 auto;
     overflow-y: auto;
 }
-.play-list {
+.play-list,
+.empty-play-list {
     height: 50px;
     padding-left: 10px;
     line-height: 50px;
+    font-size: 12px;
+}
+.play-list {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .play-list:first-of-type {
@@ -102,7 +106,6 @@
 .play-list > span {
     display: inline-block;
     height: 100%;
-    font-size: 12px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -119,6 +122,9 @@
     transform: translate(0, 14px);
     font-size: 20px;
     cursor: pointer;
+}
+.empty-play-list {
+    color: var(--cloud);
 }
 
 .audio-player-container {
