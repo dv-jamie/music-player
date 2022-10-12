@@ -1,4 +1,5 @@
 import "./PlayArea.css"
+import MUSIC_LIST from "../databases/musicList"
 import no_image from "../images/no_image.jpg"
 
 const tabType = {
@@ -16,6 +17,16 @@ function PlayArea({
 }) {
     const onRemoveButtonClick = (musicIndex) => {
         setPlayList(playList.filter(music => music.index !== musicIndex))
+    }
+
+    const onPlayListClick = (musicId) => {
+        MUSIC_LIST.map(music => {
+            if(music.id === musicId) {
+                setPlayingMusic(music)
+                return
+            }
+        })
+        setClickedTab(tabType.PLAY)
     }
 
     return (
@@ -63,7 +74,11 @@ function PlayArea({
                         ? <>
                             {playList.map(music => {
                                 return(
-                                    <li key={music.index} className="play-list">
+                                    <li
+                                        key={music.index}
+                                        className="play-list"
+                                        onClick={() => onPlayListClick(music.id)}
+                                    >
                                         <span className="title">{music.title}</span>
                                         <span className="artist">{music.artist}</span>
                                         <i
