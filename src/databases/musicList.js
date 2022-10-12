@@ -1,10 +1,23 @@
+const audios = {
+    advice: require('../audios/advice.mp3'),
+    attention: require('../audios/attention.mp3'),
+    dice: require('../audios/dice.mp3'),
+    fearless: require('../audios/fearless.mp3'),
+    forever_1: require('../audios/forever_1.mp3'),
+    illusion: require('../audios/illusion.mp3'),
+    love_dive: require('../audios/love_dive.mp3'),
+    pink_venom: require('../audios/pink_venom.mp3'),
+    sneakers: require('../audios/sneakers.mp3'),
+    stay_this_way: require('../audios/stay_this_way.mp3'),
+}
+
 const MUSIC_LIST = [
     {
         "id": 1,
         "title": "LOVE DIVE",
         "artist": "IVE",
         "image": "https://image.bugsm.co.kr/album/images/500/40737/4073710.jpg",
-        "audio": "",
+        "audio": `${audios.love_dive}`,
         "lyrics": `
             Ooh, ooh, yeah
             네가 참 궁금해 그건 너도 마찬가지 (ooh, ooh)
@@ -58,7 +71,7 @@ const MUSIC_LIST = [
         "title": "FEARLESS",
         "artist": "LE SSERAFIM (르세라핌)",
         "image": "https://image.bugsm.co.kr/album/images/500/40751/4075173.jpg",
-        "audio": "",
+        "audio": `${audios.fearless}`,
         "lyrics": "가사.."
     },
     {
@@ -66,7 +79,7 @@ const MUSIC_LIST = [
         "title": "Advice",
         "artist": "태민 (TAEMIN)",
         "image": "http://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/082/050/244/82050244_1621244234115_1_600x600.JPG",
-        "audio": "",
+        "audio": `${audios.advice}`,
         "lyrics": "가사.."
     },
     {
@@ -74,7 +87,7 @@ const MUSIC_LIST = [
         "title": "Stay This Way",
         "artist": "프로미스나인",
         "image": "https://image.bugsm.co.kr/album/images/500/40771/4077170.jpg",
-        "audio": "",
+        "audio": `${audios.stay_this_way}`,
         "lyrics": "가사.."
     },
     {
@@ -82,7 +95,7 @@ const MUSIC_LIST = [
         "title": "Pink Venom",
         "artist": "BLACKPINK",
         "image": "https://blackpinkofficial.com/music/born-pink/release-bornpink/img/ds.jpg",
-        "audio": "",
+        "audio": `${audios.pink_venom}`,
         "lyrics": "가사.."
     },
     {
@@ -90,7 +103,7 @@ const MUSIC_LIST = [
         "title": "DICE",
         "artist": "NMIXX",
         "image": "https://i.scdn.co/image/ab67616d0000b273c8caa659d37a00d34cbd6359",
-        "audio": "",
+        "audio": `${audios.dice}`,
         "lyrics": "가사.."
     },
     {
@@ -98,7 +111,7 @@ const MUSIC_LIST = [
         "title": "FOREVER 1",
         "artist": "소녀시대 (GIRLS' GENERATION)",
         "image": "https://image.bugsm.co.kr/album/images/200/204845/20484595.jpg?version=20220818012053.0",
-        "audio": "",
+        "audio": `${audios.forever_1}`,
         "lyrics": "가사.."
     },
     {
@@ -106,7 +119,7 @@ const MUSIC_LIST = [
         "title": "SNEAKERS",
         "artist": "ITZY (있지)",
         "image": "https://i.scdn.co/image/ab67616d0000b273e61bca92e4a64e50ee44a009",
-        "audio": "",
+        "audio": `${audios.sneakers}`,
         "lyrics": "가사.."
     },
     {
@@ -114,7 +127,7 @@ const MUSIC_LIST = [
         "title": "도깨비불 (Illusion)",
         "artist": "aespa",
         "image": "https://image.bugsm.co.kr/album/images/200/204715/20471520.jpg",
-        "audio": "",
+        "audio": `${audios.illusion}`,
         "lyrics": "가사.."
     },
     {
@@ -122,7 +135,7 @@ const MUSIC_LIST = [
         "title": "Attention",
         "artist": "NewJeans",
         "image": "https://blog.kakaocdn.net/dn/bFwRtb/btrIJValNCk/yy6K60RiHRqXzaNxTjVEMK/img.jpg",
-        "audio": "",
+        "audio": `${audios.attention}`,
         "lyrics": "가사.."
     }
 ]
