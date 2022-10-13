@@ -1,13 +1,23 @@
 {
   "files": {
-    "main.css": "/music-player/static/css/main.3284b0c6.css",
-    "main.js": "/music-player/static/js/main.d1a24ac0.js",
+    "main.css": "/music-player/static/css/main.eaadf10d.css",
+    "main.js": "/music-player/static/js/main.17ba28d8.js",
+    "static/media/forever_1.mp3": "/music-player/static/media/forever_1.2bc461c0cde4ec30dc9a.mp3",
+    "static/media/stay_this_way.mp3": "/music-player/static/media/stay_this_way.b6fa6fb73cbc3cd1ed61.mp3",
+    "static/media/illusion.mp3": "/music-player/static/media/illusion.d15a6bab2e3656372b33.mp3",
+    "static/media/advice.mp3": "/music-player/static/media/advice.8b1db122faf87fcf8ee6.mp3",
+    "static/media/sneakers.mp3": "/music-player/static/media/sneakers.c2b30a5373f78eb7403a.mp3",
+    "static/media/pink_venom.mp3": "/music-player/static/media/pink_venom.ffeee72c65b43b641ee0.mp3",
+    "static/media/attention.mp3": "/music-player/static/media/attention.83274c0551344a0aa751.mp3",
+    "static/media/love_dive.mp3": "/music-player/static/media/love_dive.fd1d0a5cf0db37821110.mp3",
+    "static/media/fearless.mp3": "/music-player/static/media/fearless.3fe576d91bc3ec2790ec.mp3",
+    "static/media/dice.mp3": "/music-player/static/media/dice.88ecdbcf4ef1171f2bbc.mp3",
     "index.html": "/music-player/index.html",
-    "main.3284b0c6.css.map": "/music-player/static/css/main.3284b0c6.css.map",
-    "main.d1a24ac0.js.map": "/music-player/static/js/main.d1a24ac0.js.map"
+    "main.eaadf10d.css.map": "/music-player/static/css/main.eaadf10d.css.map",
+    "main.17ba28d8.js.map": "/music-player/static/js/main.17ba28d8.js.map"
   },
   "entrypoints": [
-    "static/css/main.3284b0c6.css",
-    "static/js/main.d1a24ac0.js"
+    "static/css/main.eaadf10d.css",
+    "static/js/main.17ba28d8.js"
   ]
 }
