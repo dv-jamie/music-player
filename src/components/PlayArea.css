@@ -93,6 +93,8 @@
     font-size: 12px;
 }
 .play-list {
+    display: flex;
+    justify-content: space-between;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .play-list:first-of-type {
@@ -103,26 +105,31 @@
     color: var(--red);
     cursor: pointer;
 }
-.play-list > span {
+.play-list > .music-info {
+    width: 100%;
+}
+.play-list .title,
+.play-list .artist {
     display: inline-block;
     height: 100%;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
-.play-list > .title {
+.play-list .title {
     width: 40%;
 }
-.play-list > .artist {
+.play-list .artist {
     width: 35%;
 }
-.play-list > i {
+.remove-button {
     float: right;
     margin-right: 5px;
     transform: translate(0, 14px);
     font-size: 20px;
     cursor: pointer;
 }
+
 .empty-play-list {
     color: var(--cloud);
 }

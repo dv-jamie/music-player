@@ -1,3 +1,4 @@
+import { useRef } from "react"
 import "./PlayArea.css"
 import MUSIC_LIST from "../databases/musicList"
 import no_image from "../images/no_image.jpg"
@@ -13,33 +14,41 @@ function PlayArea({
     playList,
     setPlayList,
     playingMusic,
-    setPlayingMusic
+    setPlayingMusic,
+    audio,
+    setAudio
 }) {
+    const audioPlayerRef = useRef()
+
     const onRemoveButtonClick = (musicIndex) => {
         setPlayList(playList.filter(music => music.index !== musicIndex))
     }
 
     const onPlayListClick = (musicId) => {
-        MUSIC_LIST.map(music => {
-            if(music.id === musicId) {
-                setPlayingMusic(music)
-                return
-            }
-        })
         setClickedTab(tabType.PLAY)
+
+        const selectedMusic = MUSIC_LIST.filter(music => {
+            return music.id === musicId
+        })[0]
+        setPlayingMusic(selectedMusic)
+
+        audio.pause()
+        const newAudio = new Audio(selectedMusic.audio)
+        setAudio(newAudio)
+        newAudio.play()
     }
 
     return (
         <div className="play-area-container">
             <ul className="tabs">
                 <li
-                    className={clickedTab === tabType.PLAY ? "clicked-tab" : ""}
-                    onClick={() => setClickedTab(tabType.PLAY)}
-                >재생 화면</li>
-                <li
                     className={clickedTab === tabType.LIST ? "clicked-tab" : ""}
                     onClick={() => setClickedTab(tabType.LIST)}
                 >재생 목록</li>
+                <li
+                    className={clickedTab === tabType.PLAY ? "clicked-tab" : ""}
+                    onClick={() => setClickedTab(tabType.PLAY)}
+                >재생 화면</li>
             </ul>
             {clickedTab === tabType.PLAY
                 ? <>
@@ -72,21 +81,24 @@ function PlayArea({
                     </li>
                     {playList.length > 0
                         ? <>
-                            {playList.map(music => {
+                            {playList.map((music, index) => {
                                 return(
-                                    <li
-                                        key={music.index}
-                                        className="play-list"
-                                        onClick={() => onPlayListClick(music.id)}
-                                    >
-                                        <span className="title">{music.title}</span>
-                                        <span className="artist">{music.artist}</span>
-                                        <i
-                                            className="material-symbols-outlined"
-                                            onClick={() => onRemoveButtonClick(music.index)}
+                                    <li key={index} className="play-list">
+                                        <div
+                                            className="music-info"
+                                            onClick={() => onPlayListClick(music.id)}
                                         >
-                                            remove
-                                        </i>
+                                            <span className="title">{music.title}</span>
+                                            <span className="artist">{music.artist}</span>
+                                        </div>
+                                        <div>
+                                            <i
+                                                className="remove-button material-symbols-outlined"
+                                                onClick={() => onRemoveButtonClick(music.index)}
+                                            >
+                                                remove
+                                            </i>
+                                        </div>
                                     </li> 
                                 )
                             })}
@@ -98,6 +110,12 @@ function PlayArea({
                 </ul>
             }
             <div className="audio-player-container">
+                <audio
+                    ref={audioPlayerRef}
+                    src="something.mp3"
+                    preload="auto"
+                    muted
+                ></audio>
                 <button className="play-button">
                     <i className="play-button material-symbols-outlined">play_arrow</i>
                 </button>

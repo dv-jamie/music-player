@@ -5,8 +5,25 @@ function MusicList({
     setClickedTab,
     playList,
     setPlayList,
-    playingMusic
+    setPlayingMusic,
+    audio,
+    setAudio
 }) {
+    // const onMusicListClick = (musicId) => {
+    //     setClickedTab("PLAY")
+
+    //     const selectedMusic = MUSIC_LIST.filter(music => {
+    //         return music.id === musicId
+    //     })[0]
+    //     setPlayingMusic(selectedMusic)
+    //     setPlayList([...playList, selectedMusic])
+
+    //     audio.pause()
+    //     const newAudio = new Audio(selectedMusic.audio)
+    //     setAudio(newAudio)
+    //     newAudio.play()
+    // }
+
     const onAddIconClick = (musicId) => {
         MUSIC_LIST.map(music => {
             if(music.id === musicId) {
@@ -27,7 +44,11 @@ function MusicList({
         <ul className="music-list-container">
             {MUSIC_LIST.map(music => {
                 return (
-                    <li key={music.id} className="music-list">
+                    <li
+                        key={music.id}
+                        className="music-list"
+                        // onClick={() => onMusicListClick(music.id)}
+                    >
                         <div className="thumb-wrap">
                             <img src={music.image} />
                         </div>

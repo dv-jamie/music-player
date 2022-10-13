@@ -4,9 +4,10 @@ import PlayArea from "../components/PlayArea"
 import "./MainPage.css"
 
 function MainPage() {
-    const [clickedTab, setClickedTab] = useState("PLAY")
+    const [clickedTab, setClickedTab] = useState("LIST")
     const [playList, setPlayList] = useState([])
     const [playingMusic, setPlayingMusic] = useState(null)
+    const [audio, setAudio] = useState(new Audio())
 
     return (
         <div className="main-container">
@@ -16,6 +17,9 @@ function MainPage() {
                     setClickedTab={setClickedTab}
                     playList={playList}
                     setPlayList={setPlayList}
+                    // setPlayingMusic={setPlayingMusic}
+                    // audio={audio}
+                    // setAudio={setAudio}
                 />
             </div>
             <PlayArea
@@ -25,6 +29,8 @@ function MainPage() {
                 setPlayList={setPlayList}
                 playingMusic={playingMusic}
                 setPlayingMusic={setPlayingMusic}
+                audio={audio}
+                setAudio={setAudio}
             />
         </div>
     )
