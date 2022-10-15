@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import "./PlayArea.css"
 import MUSIC_LIST from "../databases/musicList"
 import no_image from "../images/no_image.jpg"
@@ -19,6 +19,7 @@ function PlayArea({
     setAudio
 }) {
     const audioPlayerRef = useRef()
+    const [isPlaying, setIsPlaying] = useState(false)
 
     const onRemoveButtonClick = (musicIndex) => {
         setPlayList(playList.filter(music => music.index !== musicIndex))
@@ -36,6 +37,17 @@ function PlayArea({
         const newAudio = new Audio(selectedMusic.audio)
         setAudio(newAudio)
         newAudio.play()
+        setIsPlaying(true)
+    }
+
+    const onPlayButtonClick = () => {
+        if(isPlaying) {
+            audio.pause()
+            setIsPlaying(false)
+        } else {
+            audio.play()
+            setIsPlaying(true)
+        }
     }
 
     return (
@@ -116,9 +128,15 @@ function PlayArea({
                     preload="auto"
                     muted
                 ></audio>
-                <button className="play-button">
-                    <i className="play-button material-symbols-outlined">play_arrow</i>
-                </button>
+                <i
+                    className="play-button material-symbols-outlined"
+                    onClick={onPlayButtonClick}
+                >
+                    {isPlaying
+                        ? "pause"
+                        : "play_arrow"
+                    }
+                </i>
             </div>
         </div>
     )
