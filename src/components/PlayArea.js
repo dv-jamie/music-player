@@ -71,6 +71,23 @@ function PlayArea({
                             ? `${playingMusic.image}`
                             : `${no_image}`
                         } />
+                        <div className="audio-player-container">
+                            <audio
+                                ref={audioPlayerRef}
+                                src="something.mp3"
+                                preload="auto"
+                                muted
+                            ></audio>
+                            <i
+                                className="play-button material-symbols-outlined"
+                                onClick={onPlayButtonClick}
+                            >
+                                {isPlaying
+                                    ? "pause_circle"
+                                    : "play_circle"
+                                }
+                            </i>
+                        </div>
                     </div>
                     <div className="played-music-info">
                         {playingMusic
@@ -90,8 +107,15 @@ function PlayArea({
                 </>
                 : <ul className="play-list-wrap">
                     <li className="play-list">
-                        <span className="title">제목</span>
-                        <span className="artist">아티스트</span>
+                        <div className="music-info">
+                            <span className="title">제목</span>
+                            <span className="artist">아티스트</span>
+                        </div>
+                        <div>
+                            <i className="remove-button material-symbols-outlined">
+                                remove
+                            </i>
+                        </div>
                     </li>
                     {playList.length > 0
                         ? <>
@@ -126,23 +150,6 @@ function PlayArea({
                     }
                 </ul>
             }
-            <div className="audio-player-container">
-                <audio
-                    ref={audioPlayerRef}
-                    src="something.mp3"
-                    preload="auto"
-                    muted
-                ></audio>
-                <i
-                    className="play-button material-symbols-outlined"
-                    onClick={onPlayButtonClick}
-                >
-                    {isPlaying
-                        ? "pause"
-                        : "play_arrow"
-                    }
-                </i>
-            </div>
         </div>
     )
 }
