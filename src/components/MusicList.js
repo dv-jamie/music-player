@@ -5,25 +5,7 @@ function MusicList({
     setClickedTab,
     playList,
     setPlayList,
-    setPlayingMusic,
-    audio,
-    setAudio
 }) {
-    // const onMusicListClick = (musicId) => {
-    //     setClickedTab("PLAY")
-
-    //     const selectedMusic = MUSIC_LIST.filter(music => {
-    //         return music.id === musicId
-    //     })[0]
-    //     setPlayingMusic(selectedMusic)
-    //     setPlayList([...playList, selectedMusic])
-
-    //     audio.pause()
-    //     const newAudio = new Audio(selectedMusic.audio)
-    //     setAudio(newAudio)
-    //     newAudio.play()
-    // }
-
     const onAddIconClick = (musicId) => {
         MUSIC_LIST.map(music => {
             if(music.id === musicId) {

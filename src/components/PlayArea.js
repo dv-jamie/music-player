@@ -20,13 +20,15 @@ function PlayArea({
 }) {
     const audioPlayerRef = useRef()
     const [isPlaying, setIsPlaying] = useState(false)
+    const [playingIndex, setPlayingIndex] = useState(null)
 
     const onRemoveButtonClick = (musicIndex) => {
         setPlayList(playList.filter(music => music.index !== musicIndex))
     }
 
-    const onPlayListClick = (musicId) => {
+    const onPlayListClick = (musicId, index) => {
         setClickedTab(tabType.PLAY)
+        setPlayingIndex(index)
 
         const selectedMusic = MUSIC_LIST.filter(music => {
             return music.id === musicId
@@ -97,8 +99,11 @@ function PlayArea({
                                 return(
                                     <li key={index} className="play-list">
                                         <div
-                                            className="music-info"
-                                            onClick={() => onPlayListClick(music.id)}
+                                            className={index === playingIndex
+                                                ? "playing music-info"
+                                                : "music-info"
+                                            }
+                                            onClick={() => onPlayListClick(music.id, index)}
                                         >
                                             <span className="title">{music.title}</span>
                                             <span className="artist">{music.artist}</span>

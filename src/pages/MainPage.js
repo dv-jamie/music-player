@@ -6,7 +6,7 @@ import "./MainPage.css"
 function MainPage() {
     const [clickedTab, setClickedTab] = useState("LIST")
     const [playList, setPlayList] = useState([])
-    const [playingMusic, setPlayingMusic] = useState(null)
+    const [playingMusic, setPlayingMusic] = useState({id: null})
     const [audio, setAudio] = useState(new Audio())
 
     return (
