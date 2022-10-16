@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useState } from "react"
 import "./PlayArea.css"
 import MUSIC_LIST from "../databases/musicList"
 import no_image from "../images/no_image.jpg"
@@ -18,9 +18,42 @@ function PlayArea({
     audio,
     setAudio
 }) {
-    const audioPlayerRef = useRef()
     const [isPlaying, setIsPlaying] = useState(false)
     const [playingIndex, setPlayingIndex] = useState(null)
+
+    audio.onended = () => {
+        playNextMusic()
+    }
+
+    const playPrevMusic = () => {
+        const prevMusicIndex = playingIndex - 1 < 0
+            ? playList.length - 1
+            : playingIndex - 1
+        const prevMusic = playList[prevMusicIndex]
+
+        audio.pause()
+        setPlayingIndex(prevMusicIndex)
+        setPlayingMusic(prevMusic)
+        const newAudio = new Audio(prevMusic.audio)
+        setAudio(newAudio)
+        newAudio.play()
+    }
+
+    const playNextMusic = () => {
+        console.log("playingIndex", playingIndex)
+        console.log("length", playList.length)
+        const nextMusicIndex = playingIndex + 1 >= playList.length
+            ? 0
+            : playingIndex + 1
+        const nextMusic = playList[nextMusicIndex]
+
+        audio.pause()
+        setPlayingIndex(nextMusicIndex)
+        setPlayingMusic(nextMusic)
+        const newAudio = new Audio(nextMusic.audio)
+        setAudio(newAudio)
+        newAudio.play()
+    }
 
     const onRemoveButtonClick = (musicIndex) => {
         setPlayList(playList.filter(music => music.index !== musicIndex))
@@ -67,30 +100,39 @@ function PlayArea({
             {clickedTab === tabType.PLAY
                 ? <>
                     <div className="album-cover-wrap">
-                        <img src={playingMusic
+                        <img src={playingMusic.id
                             ? `${playingMusic.image}`
                             : `${no_image}`
                         } />
-                        <div className="audio-player-container">
-                            <audio
-                                ref={audioPlayerRef}
-                                src="something.mp3"
-                                preload="auto"
-                                muted
-                            ></audio>
-                            <i
-                                className="play-button material-symbols-outlined"
-                                onClick={onPlayButtonClick}
-                            >
-                                {isPlaying
-                                    ? "pause_circle"
-                                    : "play_circle"
-                                }
-                            </i>
-                        </div>
+                        {playingMusic.id
+                            ? <div className="audio-player-container">
+                                <i
+                                    className="skip-button material-symbols-outlined"
+                                    onClick={playPrevMusic}
+                                >
+                                    skip_previous
+                                </i>
+                                <i
+                                    className="play-button material-symbols-outlined"
+                                    onClick={onPlayButtonClick}
+                                >
+                                    {isPlaying
+                                        ? "pause_circle"
+                                        : "play_circle"
+                                    }
+                                </i>
+                                <i
+                                    className="skip-button material-symbols-outlined"
+                                    onClick={playNextMusic}
+                                >
+                                    skip_next
+                                </i>
+                            </div>
+                            : ""
+                        }
                     </div>
                     <div className="played-music-info">
-                        {playingMusic
+                        {playingMusic.id
                             ? <>
                                 <p className="title">{playingMusic.title}</p>
                                 <p className="artist">{playingMusic.artist}</p>
@@ -99,7 +141,7 @@ function PlayArea({
                         }
                     </div>
                     <div className="lyrics">
-                        {playingMusic
+                        {playingMusic.id
                             ? `${playingMusic.lyrics}`
                             : ""
                         }
@@ -123,7 +165,7 @@ function PlayArea({
                                 return(
                                     <li key={index} className="play-list">
                                         <div
-                                            className={index === playingIndex
+                                            className={isPlaying && index === playingIndex
                                                 ? "playing music-info"
                                                 : "music-info"
                                             }

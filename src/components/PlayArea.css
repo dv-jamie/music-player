@@ -54,8 +54,11 @@
     height: 100%;
     object-fit: contain;
 }
+
 .audio-player-container {
     display: none;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 0;
     left: 0;
@@ -64,16 +67,20 @@
     background-color: rgba(0, 0, 0, 0.6);
     text-align: center;
 }
+.audio-player-container > i {
+    display: inline-block;
+}
+.skip-button {
+    font-size: 40px;
+}
 .play-button {
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    margin: 0 5px;
     color: #FFF;
     font-size: 65px;
     cursor: pointer;
 }
 .album-cover-wrap:hover > .audio-player-container {
-    display: block;
+    display: flex;
 }
 
 .played-music-info {
@@ -95,6 +102,7 @@
 
 .lyrics {
     width: 90%;
+    height: 100%;
     margin: 20px auto;
     white-space: pre-line;
     text-align: center;
