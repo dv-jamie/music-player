@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/music-player/static/css/main.eaadf10d.css",
-    "main.js": "/music-player/static/js/main.17ba28d8.js",
+    "main.css": "/music-player/static/css/main.228a5d56.css",
+    "main.js": "/music-player/static/js/main.8cf25c40.js",
     "static/media/forever_1.mp3": "/music-player/static/media/forever_1.2bc461c0cde4ec30dc9a.mp3",
     "static/media/stay_this_way.mp3": "/music-player/static/media/stay_this_way.b6fa6fb73cbc3cd1ed61.mp3",
     "static/media/illusion.mp3": "/music-player/static/media/illusion.d15a6bab2e3656372b33.mp3",
@@ -13,11 +13,11 @@
     "static/media/fearless.mp3": "/music-player/static/media/fearless.3fe576d91bc3ec2790ec.mp3",
     "static/media/dice.mp3": "/music-player/static/media/dice.88ecdbcf4ef1171f2bbc.mp3",
     "index.html": "/music-player/index.html",
-    "main.eaadf10d.css.map": "/music-player/static/css/main.eaadf10d.css.map",
-    "main.17ba28d8.js.map": "/music-player/static/js/main.17ba28d8.js.map"
+    "main.228a5d56.css.map": "/music-player/static/css/main.228a5d56.css.map",
+    "main.8cf25c40.js.map": "/music-player/static/js/main.8cf25c40.js.map"
   },
   "entrypoints": [
-    "static/css/main.eaadf10d.css",
-    "static/js/main.17ba28d8.js"
+    "static/css/main.228a5d56.css",
+    "static/js/main.8cf25c40.js"
   ]
 }
