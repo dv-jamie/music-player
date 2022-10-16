@@ -71,9 +71,11 @@
 }
 
 .lyrics {
-    width: 75%;
+    width: 90%;
     height: 30%;
     margin: 0 auto;
+    white-space: pre-line;
+    text-align: center;
     font-size: 12px;
     line-height: 20px;
     overflow-y: auto;
